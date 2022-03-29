@@ -1,4 +1,6 @@
 {
+  'name': 'Rudzeris_Project',
+  'version': '0.0.1',
   "dependencies": {
     "bootstrap": "^5.1.3"
   }

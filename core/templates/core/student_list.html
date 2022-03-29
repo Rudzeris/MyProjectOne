@@ -1,0 +1,18 @@
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">FIO</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for student in object %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ student.name }}</td>
+      </tr>
+    {% empty %}
+            <h4>Не найдено</h4>
+    {% endfor %}
+    </tbody>
+  </table>

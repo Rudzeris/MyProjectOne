@@ -6,6 +6,7 @@ app_name = 'core'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', core.views.Hi, name='index'),
+    path('', core.views.index, name='index'),
+    path('list/', core.views.Student_list, name='Student_list'),
     # path('', core.views.IndexView.as_view(), name='index'),
 ]
