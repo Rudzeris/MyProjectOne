@@ -12,9 +12,20 @@ class Student(models.Model):
         return self.name
 
 
+class Lessons(models.Model):
+    name = models.CharField('Предмет', max_length=128)
+
+    class Meta:
+        verbose_name = 'Предмет'
+        verbose_name_plural = 'Предметы'
+
+    def __str__(self):
+        return self.name
+
+
 class Exam(models.Model):
     student = models.ForeignKey('core.Student', on_delete=models.CASCADE, null=False, blank=True)
-    lesson = models.CharField('Предмет', null=True, blank=True, max_length=128)
+    lesson = models.ForeignKey('core.Lessons', on_delete=models.SET_NULL, null=False, blank=True)
     grade = models.IntegerField('Оценка', blank=True, null=True)
 
     class Meta:
