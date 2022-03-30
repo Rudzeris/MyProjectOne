@@ -25,7 +25,7 @@ class Lessons(models.Model):
 
 class Exam(models.Model):
     student = models.ForeignKey('core.Student', on_delete=models.CASCADE, null=False, blank=True)
-    lesson = models.ForeignKey('core.Lessons', on_delete=models.SET_NULL, null=False, blank=True)
+    lesson = models.ForeignKey('core.Lessons', on_delete=models.CASCADE, null=False, blank=True)
     grade = models.IntegerField('Оценка', blank=True, null=True)
 
     class Meta:

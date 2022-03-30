@@ -27,7 +27,7 @@
             <a class="nav-link" href="admin/">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'core:Student_list' %}">List</a>
+            <a class="nav-link" href="{% url 'core:Student_list'%}">List</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
@@ -36,23 +36,6 @@
       </div>
     </div>
   </nav>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for book in object %}
-      <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td>{{book.name}}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
 
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
