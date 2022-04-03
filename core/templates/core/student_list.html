@@ -17,10 +17,10 @@
       </tr>
     </thead>
     <tbody>
-    {% for book in object %}
+    {% for book in object_list %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td><a href="{% url 'core:Exam_list' book.pk %}">{{book.name}}</a></td>
+        <td><a href="{% url 'core:Exam_list' book.pk %}">{{book.name|capfirst}}</a></td>
       </tr>
     {% endfor %}
     </tbody>

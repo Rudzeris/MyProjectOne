@@ -29,6 +29,9 @@ class Exam(models.Model):
     grade = models.IntegerField('Оценка', blank=True, null=True)
 
     class Meta:
+        ordering=['grade']
         verbose_name = 'Экзамен'
         verbose_name_plural = 'Экзамены'
 
+    def __str__(self):
+        return self.grade

@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-    {% for WW in exam %}
+    {% for WW in object_list %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
         <td>{{WW.student}}</td>
@@ -29,6 +29,10 @@
     {% endfor %}
     </tbody>
   </table>
+
+
+
+
 
 </body>
 </html>
