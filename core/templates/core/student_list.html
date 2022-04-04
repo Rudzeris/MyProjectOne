@@ -1,6 +1,8 @@
-<link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+{% extends 'core/index.html' %}
 
-<form class="row g-3">
+{% block content %}
+
+    <form class="row g-3">
         <div class="col-auto">
             <input type="text" class="form-control" placeholder="ФИО" name="name" value="{{ request.GET.name }}">
         </div>
@@ -9,7 +11,8 @@
         </div>
     </form>
 
-  <table class="table">
+
+    <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -24,7 +27,7 @@
       </tr>
     {% endfor %}
     </tbody>
-  </table>
+    </table>
 
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+{% endblock %}

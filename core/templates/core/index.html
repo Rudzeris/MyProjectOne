@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>{{ title }}</title>
   </head>
   <body>
 
@@ -24,19 +24,21 @@
             <a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="admin/">Admin</a>
+            <a class="nav-link"  href="{% url 'core:admin' %}">Admin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'core:Student_list'%}">List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  {% block content %}
+
+      <h3>Информация</h3>
+
+  {% endblock %}
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
   </body>
