@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.shortcuts import render
 import core.models
+import core.filters
 
 
 class IndexView(TemplateView):
@@ -20,6 +21,16 @@ class IndexView(TemplateView):
 class Student_list(ListView):
     queryset = core.models.Student.objects.all()
 
+    def get_filters(self):
+        return core.filters.StudentFilters(self.request.GET)
+
+    def get_queryset(self):
+        return self.get_filters().qs
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['filters'] = self.get_filters()
+        return context
 
 
 class Exam_list(ListView):
