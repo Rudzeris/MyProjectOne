@@ -4,8 +4,18 @@ from django.shortcuts import render
 import core.models
 import core.filters
 
+class TitleMixin:
+    title: str = None
 
-class IndexView(TemplateView):
+    def get_title(self):
+        return self.title
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['title'] = self.get_title()
+        return context
+
+class IndexView(TitleMixin,TemplateView):
     template_name = 'core/index.html'
     title = 'Главная страница'
 
@@ -18,9 +28,9 @@ class IndexView(TemplateView):
         return 'Главная страница'
 
 
-class Student_list(ListView):
+class Student_list(TitleMixin,ListView):
     queryset = core.models.Student.objects.all()
-
+    title = 'Студенты'
     def get_filters(self):
         return core.filters.StudentFilters(self.request.GET)
 
@@ -33,9 +43,9 @@ class Student_list(ListView):
         return context
 
 
-class Exam_list(ListView):
+class Exam_list(TitleMixin,ListView):
     queryset=core.models.Exam.objects.all()
-
+    title='Информация'
     def get_queryset(self):
         pk = self.kwargs.get('pk')
         s=1
