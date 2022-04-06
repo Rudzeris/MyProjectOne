@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView, UpdateView,
 from django.shortcuts import render
 import core.models
 import core.filters
+import core.forms
 
 class TitleMixin:
     title: str = None
@@ -39,7 +40,8 @@ class Student_list(TitleMixin,ListView):
 
     def get_context_data(self):
         context = super().get_context_data()
-        context['filters'] = self.get_filters()
+        # context['filters'] = self.get_filters()
+        context['form'] = core.forms.StudentSearch(self.request.GET or None)
         return context
 
 
@@ -54,3 +56,32 @@ class Exam_list(TitleMixin,ListView):
             queryset = queryset.filter(student_id=pk)
         return queryset
 
+
+class StudentUpdate(TitleMixin, UpdateView):
+    model = core.models.Student
+    form_class = core.forms.StudentEdit
+
+    def get_title(self):
+        return f'Изменение данных студента "{str(self.get_object())}"'
+
+    def get_success_url(self):
+        return reverse('Student_list')
+
+
+class StudentCreate(TitleMixin, CreateView):
+    model = core.models.Student
+    form_class = core.forms.StudentEdit
+    title = 'Добавление Студента'
+
+    def get_success_url(self):
+        return reverse('core:Student_list')
+
+
+class StudentDelete(TitleMixin, DeleteView):
+    model = core.models.Student
+
+    def get_title(self):
+        return f'Отчисление студента {str(self.get_object())}'
+
+    def get_success_url(self):
+        return reverse('core:Student_list')
