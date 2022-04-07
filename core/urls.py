@@ -7,9 +7,11 @@ app_name = 'core'
 urlpatterns = [
     path('', core.views.IndexView.as_view(), name='index'),
     path('admin/', core.views.IndexView.as_view(), name='admin'),
-    path('list/', core.views.Student_list.as_view(), name='Student_list'),
-    path('list/<int:pk>/', core.views.Exam_list.as_view(), name='Exam_list'),
-    path('list/create/', core.views.StudentCreate.as_view(), name='Student_create'),
-    path('list/<int:pk>/update/', core.views.StudentUpdate.as_view(), name='Student_update'),
-    path('list/<int:pk>/delete/', core.views.StudentDelete.as_view(), name='Student_delete'),
+    path('list/student/', core.views.Student_list.as_view(), name='Student_list'),
+    path('list/lesson/', core.views.Lesson_list.as_view(), name='Lesson_list'),
+    path('list/student/<int:pk>/', core.views.Exam_list.as_view(), name='Exam_list'),
+    path('list/student/create/', core.views.StudentCreate.as_view(), name='Student_create'),
+    path('accounts/login/', core.views.LoginView.as_view(), name="login"),
+    path('accounts/profile/', core.views.ProfilePage.as_view(), name="profile"),
+    path(r'^accounts/register/$', core.views.RegisterView.as_view(), name="register"),
 ]

@@ -2,7 +2,6 @@
 
 {% block content %}
 
-    <table>{% include 'core/search_student.html' %}</table>
 
     <table class="table">
     <thead>
@@ -12,15 +11,15 @@
       </tr>
     </thead>
     <tbody>
-    {% for student in object_list %}
+    {% for lesson in object_list %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td><a href="{% url 'core:Exam_list' student.pk %}">{{student.name|capfirst}}</a></td>
+        <td><a href="{% url 'core:Exam_list' lesson.pk %}">{{lesson.name|capfirst}}</a></td>
       </tr>
     {% endfor %}
     </tbody>
     </table>
 
-    <a href="{% url 'core:Student_create' %}" class="btn btn-success"> Зачислить студента</a>
+    <a href="{% url 'core:Student_create' %}" class="btn btn-success"> Добавить предмет</a>
 
 {% endblock %}

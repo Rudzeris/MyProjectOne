@@ -26,20 +26,27 @@
           <li class="nav-item">
             <a class="nav-link"  href="{% url 'core:admin' %}">Admin</a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link"  href="{% url 'core:register' %}">Register/Login</a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'core:Student_list'%}">List</a>
+            <a class="nav-link" href="{% url 'core:Student_list'%}">Students</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'core:Lesson_list'%}">Lessons</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   {% block content %}
 
-      <h3>Информация</h3>
+      <h3></h3>
+
 
   {% endblock %}
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
 
   </body>
 </html>

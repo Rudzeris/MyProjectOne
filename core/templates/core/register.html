@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+ <a href="{% url 'core:login' %}" class="btn btn-success"> Войти на сайт </a>
+    <h1>Регистрация</h1>
+    <form method="post">
+        {% csrf_token %}
+        Имя пользователя: <input type="text" name="username"><br>
+        Email: <input type="email" name="email"><br>
+        Пароль: <input type="password" name="password"><br>
+        Пароль еще раз: <input type="password" name="password2"><br>
+
+        <input type="submit" value="Регистрация">
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </form>
+</body>
+</html>
